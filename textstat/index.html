@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Interview: Text statistics</title>
+    <link rel="stylesheet" href="index.css"/>
+    <script src="text.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="divText">
+        <h1>Given text</h1>
+        <textarea id="text"></textarea>
+
+        <button id="statistics" onclick="onStatisticsClicked">Statistics</button>
+        <button id="removewords" onclick="onRemoveWordsClicked">Remove even words</button>
+    </div>
+    <div id="divDisplay">
+        <h1>Results</h1>
+
+        <label for="valCharCount">Characters count</label>
+        <input id="valCharCount" name="valCharCount" readonly="readonly"/>
+
+        <label for="valSpacesCount">Spaces count</label>
+        <input id="valSpacesCount" name="valSpacesCount" readonly="readonly"/>
+
+        <label for="valVowelsCount">Vowels count</label>
+        <input id="valVowelsCount" name="valVowelsCount" readonly="readonly"/>
+
+        <label for="valConsonantsCount">Consonants count</label>
+        <input id="valConsonantsCount" name="valConsonantsCount" readonly="readonly"/>
+
+        <label for="valWordsCount">Words count</label>
+        <input id="valWordsCount" name="valWordsCount" readonly="readonly"/>
+
+        <label for="valOddWords">Odd words</label>
+        <textarea id="valOddWords" name="valOddWords"></textarea>
+    </div>
+</div>
+</body>
+</html>
