@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', init);
 
+const ANGULAR_SPEED = Math.PI / 4; // rad / s  (пол-оборота за ~4 с)
+const RADIUS_NORM   = 1.0;         // unit circle (canvas code scales)
+
 function init() {
     class Drawing {
         constructor(canvasId) {
@@ -49,20 +52,24 @@ function init() {
      * @returns {number[]} - Coordinates in Array
      */
     function getCoordinates(time) {
-        // TODO: implement body of this function
-        return [0.0, 1.0];
+        const turnPerSec = 8;           // Turnover per second: could change for control the rotation speed (try 0.5 and 8)
+
+        const angle = (Math.PI / turnPerSec) * time  %  (2 * Math.PI); 
+        return [Math.cos(angle), Math.sin(angle)];
     }
 
     /**
      * Updates drawing on defined interval
      */
     function update() {
+
         const time = Date.now() / 1000;
         coordinates = getCoordinates(time);
         drawing.redraw(coordinates);
+
     }
 
     const drawing = new Drawing('cnvDraw');
     const timer = setInterval(update, 10);
-    // window.addEventListener('resize', update);
+    window.addEventListener('resize', update);
 }
